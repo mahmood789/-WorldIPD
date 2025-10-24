@@ -1,6 +1,6 @@
 options(repos = "https://cloud.r-project.org")
-if (!requireNamespace(''haven'', quietly = TRUE)) install.packages(''haven'')
-if (!requireNamespace(''readr'', quietly = TRUE)) install.packages(''readr'')
+if (!requireNamespace('haven', quietly = TRUE)) install.packages('haven')
+if (!requireNamespace('readr', quietly = TRUE)) install.packages('readr')
 
 source("data-raw/fetchers/fetch_nhanes.R")
 source("data-raw/fetchers/fetch_nhanes_labs.R")
@@ -19,8 +19,8 @@ message("Fetching MEPS FYC 2019-2022 ..."); try(fetch_meps_fyc(2019:2022), silen
 
 map_file <- "data-raw/fetchers/meps_event_url_map.csv"
 if (file.exists(map_file)) {
-  message("Fetching MEPS events via mapping CSV ...");
-  try(fetch_meps_events(years = 2000:2022, events = c(''rx'',''ob'',''op'',''er'',''ip''), map_file = map_file), silent = TRUE)
+  message("Fetching MEPS events via mapping CSV ...")
+  try(fetch_meps_events(years = 2000:2022, events = c('rx','ob','op','er','ip'), map_file = map_file), silent = TRUE)
 } else {
   message("MEPS event mapping CSV not found; skipping events.")
 }

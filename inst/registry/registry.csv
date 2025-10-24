@@ -11,3 +11,28 @@ nhanes__demo,public_health,CDC NHANES,https://wwwn.cdc.gov/nchs/nhanes/continuou
 nhanes__demo,public_health,CDC NHANES,https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes,public domain,CDC NHANES Continuous ,remote_only; DEMO_.XPT,remote_only
 nhanes__demo,public_health,CDC NHANES,https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes,public domain,CDC NHANES Continuous ,remote_only; DEMO_.XPT,remote_only
 nhanes__demo,public_health,CDC NHANES,https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes,public domain,CDC NHANES Continuous ,remote_only; DEMO_.XPT,remote_only
+meps_2019_fyc,health_economics,AHRQ MEPS,https://meps.ahrq.gov/data_stats/download_data_files.jsp,public domain,MEPS Full-Year Consolidated 2019,remote_only; downloadable via fetch_meps,remote_only
+meps_2020_fyc,health_economics,AHRQ MEPS,https://meps.ahrq.gov/data_stats/download_data_files.jsp,public domain,MEPS Full-Year Consolidated 2020,remote_only; downloadable via fetch_meps,remote_only
+meps_2021_fyc,health_economics,AHRQ MEPS,https://meps.ahrq.gov/data_stats/download_data_files.jsp,public domain,MEPS Full-Year Consolidated 2021,remote_only; downloadable via fetch_meps,remote_only
+meps_2022_fyc,health_economics,AHRQ MEPS,https://meps.ahrq.gov/data_stats/download_data_files.jsp,public domain,MEPS Full-Year Consolidated 2022,remote_only; downloadable via fetch_meps,remote_only
+nsduh_2002,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2002 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2003,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2003 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2004,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2004 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2005,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2005 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2006,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2006 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2007,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2007 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2008,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2008 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2009,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2009 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2010,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2010 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2011,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2011 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2012,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2012 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2013,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2013 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2014,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2014 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2015,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2015 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2016,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2016 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2017,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2017 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2018,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2018 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2019,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2019 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2020,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2020 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2021,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2021 Public Use,remote_only; transform to CSV offline,remote_only
+nsduh_2022,public_health,SAMHSA NSDUH,https://www.samhsa.gov/data/data-we-collect/nsduh-national-survey-drug-use-and-health,public-use,NSDUH 2022 Public Use,remote_only; transform to CSV offline,remote_only

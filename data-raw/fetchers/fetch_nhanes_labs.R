@@ -4,7 +4,7 @@
 # cycles: data.frame with yr (e.g., 2017_2018) and suf (A..J)
 
 fetch_nhanes_labs <- function(modules = c('TCHOL','GLU','HDL','TRIG','A1C'),
-                              cycles = data.frame(yr=c('1999_2000','2001_2002','2003_2004','2005_2006','2007_2008','2009_2010','2011_2012','2013_2014','2015_2016','2017_2018'),
+                              cycles = data.frame(yr=c('1999_2000','2001_2002','2003_2004','2005_2006','2007_2008','2009_2010','2011_2012','2013_2014','2015_2016','2017_2018','2019_2020','2021_2022'), suf=c('A','B','C','D','E','F','G','H','I','J','K','L'), stringsAsFactors = FALSE),
                                                   suf=LETTERS[1:10], stringsAsFactors = FALSE),
                               dest_dir = file.path('inst','extdata')){
   if (!requireNamespace('haven', quietly = TRUE)) stop("Install haven: install.packages('haven')")
@@ -31,3 +31,4 @@ fetch_nhanes_labs <- function(modules = c('TCHOL','GLU','HDL','TRIG','A1C'),
   }
   invisible(TRUE)
 }
+

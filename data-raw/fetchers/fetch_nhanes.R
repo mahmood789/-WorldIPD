@@ -1,37 +1,41 @@
-﻿# Fetch NHANES 2017-2018 patient-level tables as example IPD (Demographics and Labs)
-# Read-only ingestion; writes to inst/extdata as CSV
-# Requires: readr
+﻿# Fetch NHANES patient-level tables (Demographics) for multiple cycles as example IPD
+# Requires: haven
 
-fetch_nhanes_2017_2018 <- function(dest_dir = file.path("inst","extdata")){
+fetch_nhanes_demo <- function(cycles = c(
+  list(yr='1999_2000', suf='A'),
+  list(yr='2001_2002', suf='B'),
+  list(yr='2003_2004', suf='C'),
+  list(yr='2005_2006', suf='D'),
+  list(yr='2007_2008', suf='E'),
+  list(yr='2009_2010', suf='F'),
+  list(yr='2011_2012', suf='G'),
+  list(yr='2013_2014', suf='H'),
+  list(yr='2015_2016', suf='I'),
+  list(yr='2017_2018', suf='J')
+), dest_dir = file.path('inst','extdata')){
+  if (!requireNamespace('haven', quietly = TRUE)) stop("Install haven: install.packages('haven')")
   if (!dir.exists(dest_dir)) dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
-  # Demographics: P_DEMO.XPT (SAS transport) — convert to CSV requires haven
-  # To keep dependencies light, fetch CSV mirrors where available, otherwise instruct haven usage.
-  message("Fetching NHANES 2017-2018 demographics requires haven to read XPT.")
-  if (!requireNamespace("haven", quietly = TRUE)) stop("Install haven to read NHANES XPT files: install.packages('haven')")
-
-  demo_xpt <- tempfile(fileext = ".xpt")
-  demo_url <- "https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.XPT"
-  utils::download.file(demo_url, destfile = demo_xpt, mode = "wb", quiet = TRUE)
-  demo <- haven::read_xpt(demo_xpt)
-  # Standardize minimal columns
-  names(demo) <- tolower(names(demo))
-  demo$dataset_id <- 'nhanes_2017_2018_demo'
-  demo$patient_id <- demo$seqn  # NHANES respondent sequence number
-  out_demo <- file.path(dest_dir, 'nhanes_2017_2018_demo.csv')
-  utils::write.csv(demo, out_demo, row.names = FALSE)
-  message("Wrote ", out_demo)
-
-  # Example lab: Total Cholesterol (TCHOL_J.XPT)
-  lab_xpt <- tempfile(fileext = ".xpt")
-  lab_url <- "https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/TCHOL_J.XPT"
-  utils::download.file(lab_url, destfile = lab_xpt, mode = "wb", quiet = TRUE)
-  lab <- haven::read_xpt(lab_xpt)
-  names(lab) <- tolower(names(lab))
-  lab$dataset_id <- 'nhanes_2017_2018_lab'
-  lab$patient_id <- lab$seqn
-  out_lab <- file.path(dest_dir, 'nhanes_2017_2018_lab.csv')
-  utils::write.csv(lab, out_lab, row.names = FALSE)
-  message("Wrote ", out_lab)
-
-  invisible(list(demographics = out_demo, labs = out_lab))
+  for (cc in cycles) {
+    suf <- cc$suf; yr <- cc$yr
+    id <- sprintf('nhanes_%s_demo', yr)
+    url <- sprintf('https://wwwn.cdc.gov/Nchs/Nhanes/%s/DEMO_%s.XPT', if (suf %in% LETTERS[1:5]) '1999-2000' else yr, suf)
+    # Note: NHANES URL patterns vary; fallback to 2017-2018 style if needed
+    if (suf %in% c('J','I','H','G','F','E','D','C','B','A')) {
+      # Try modern pattern first (2017-2018): DEMO_J.XPT
+      url <- sprintf('https://wwwn.cdc.gov/Nchs/Nhanes/%s/DEMO_%s.XPT', yr, suf)
+    }
+    tf <- tempfile(fileext = '.xpt')
+    ok <- try(utils::download.file(url, destfile=tf, mode='wb', quiet=TRUE), silent=TRUE)
+    if (inherits(ok,'try-error')) { message('Skip ', id, ' (download failed)'); next }
+    demo <- try(haven::read_xpt(tf), silent=TRUE)
+    if (inherits(demo,'try-error')) { message('Skip ', id, ' (read_xpt failed)'); next }
+    names(demo) <- tolower(names(demo))
+    demo$dataset_id <- id
+    if (!('seqn' %in% names(demo))) { message('Skip ', id, ' (seqn missing)'); next }
+    demo$patient_id <- demo$seqn
+    out <- file.path(dest_dir, paste0(id, '.csv'))
+    utils::write.csv(demo, out, row.names=FALSE)
+    message('Wrote ', out)
+  }
+  invisible(TRUE)
 }

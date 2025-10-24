@@ -25,3 +25,14 @@
 source('data-raw/fetchers/use_meps_event_map.R')
 ```
 This will fetch mapped events and write inst/extdata/meps_<year>_<event>.csv
+
+## SIPP (US Census) and ATUS (BLS) fetchers
+- SIPP: edit data-raw/fetchers/sipp_url_map.csv with (year,file,url) rows; then run:
+```r
+source('data-raw/fetchers/fetch_sipp.R'); fetch_sipp()
+```
+- ATUS: edit data-raw/fetchers/atus_url_map.csv with (year,file,url) rows; then run:
+```r
+source('data-raw/fetchers/fetch_atus.R'); fetch_atus()
+```
+Each fetched dataset will be written to inst/extdata and can be flipped to access="local" in the registry.

@@ -1,0 +1,14 @@
+Package: WorldIPD
+Type: Package
+Title: Open Individual Participant Data (IPD) Hub
+Version: 0.1.0
+Authors@R: person("Mahmood", "Ahmad", email = "mahmood.ahmad2@nhs.net", role = c("aut","cre"))
+Description: Scaffolding for the largest open IPD repository. Provides a standard schema, a registry of sources, fetchers for public datasets (Zenodo/GitHub/NHANES), validators, and a simple API to list and load datasets. All ingestion is read-only and provenance-first.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends: R (>= 4.1)
+Imports: utils, stats, jsonlite
+Suggests: httr, dplyr, tibble, readr
+URL: https://github.com/mahmood789/WorldIPD
+BugReports: https://github.com/mahmood789/WorldIPD/issues

@@ -16,3 +16,12 @@
 - Add a row to registry for a new dataset
 - Drop a standardized CSV into inst/extdata/<id>.csv
 - Or write a fetcher that registers and downloads from a public source
+
+## MEPS event mapping (2000–2022)
+- Use data-raw/fetchers/meps_event_url_map_template.csv as a template to create data-raw/fetchers/meps_event_url_map.csv
+- Add rows: year,event,url (event ∈ rx, ob, op, er, ip)
+- Then run:
+```r
+source('data-raw/fetchers/use_meps_event_map.R')
+```
+This will fetch mapped events and write inst/extdata/meps_<year>_<event>.csv

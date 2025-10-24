@@ -36,3 +36,14 @@ validate_ipd <- function(df){
   list(ok = length(issues) == 0, issues = issues)
 }
 
+#' Launch the WorldIPD Shiny browser
+#' @export
+launch_worldipd_browser <- function(){
+  app_dir <- if (nzchar(system.file('shiny', package = utils::packageName()))) {
+    system.file('shiny', package = utils::packageName())
+  } else {
+    file.path('inst','shiny')
+  }
+  if (!dir.exists(app_dir)) stop('Shiny app not found at ', app_dir)
+  shiny::runApp(app_dir, launch.browser = TRUE)
+}
